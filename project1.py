@@ -1,11 +1,10 @@
 import os
 import json
 
-
+list_vaccines = ["Corona", "cancer", "Virus C"]
 users = [['111', 'zeyad', 'zeyad2005@', 'zoz']]
 admin_password = "admin"
-vaccination_center = [['000', 'ax', 'cairo',
-                      ["Corona\n", "cancer\n", "Virus C"]]]
+vaccination_center = [['000', 'ax', 'cairo', list_vaccines]]
 
 # Take the input
 choice = input(
@@ -28,8 +27,21 @@ def login():
             print("invalid option..")
 
     if role == admin_password:
-
-        pass
+        print("Admin menu\n")
+        choice = input(
+            "Add Vaccination Center:\nRemove Vaccination Center:\n").lower()
+        while True:
+            if choice == 'add':
+                vac_ID = int(input("Enter the vaccination center ID:"))
+                vac_name = input("Enter the vaccination center name:")
+                vac_address = input("Enter the vaccination center address:")
+                vaccination_center.append([vac_ID, vac_name, vac_address])
+                print("list added")
+            else:
+                print(vaccination_center)
+                remove_input = input("Enter which list you want to remove:")
+                remove_input - 1
+                vaccination_center.pop(remove_input)
 
 # Register to system
 

@@ -1,7 +1,11 @@
 import os
 import json
 
+
 users = [['111', 'zeyad', 'zeyad2005@', 'zoz']]
+admin_password = "admin"
+vaccination_center = [['000', 'ax', 'cairo',
+                      ["Corona\n", "cancer\n", "Virus C"]]]
 
 # Take the input
 choice = input(
@@ -11,17 +15,21 @@ choice = input(
 # User login the System
 
 def login():
-    role = input("Are you admin or not:")
+    role = input("Enter admin password:").lower()
     Id = int(input("Enter your ID:"))
     name = input("Enter your name:")
     email = input("enter your email:")
     password = input("Enter your password:")
     for user in users:
         if user[2] == email and user[3] == password:
-            print("Logged in successful")
+            return True
 
         else:
             print("invalid option..")
+
+    if role == admin_password:
+
+        pass
 
 # Register to system
 

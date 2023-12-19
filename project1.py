@@ -3,7 +3,8 @@ import json
 
 file_path = 'logs.txt'
 f = open("Logs.txt", 'a+')
-users = []
+login_dic = {"ID": '', "password": ''}
+users = [['111', 'zeyad', 'zeyad2005@', 'zoz']]
 
 # Take the input
 choice = input(
@@ -12,28 +13,29 @@ choice = input(
 
 # User login the System
 
-
 def login():
+    Id = int(input("Enter your ID:"))
+    name = input("Enter your name:")
+    email = input("enter your email:")
+    password = input("Enter your password:")
+    for user in users:
+        if user[2] == email and user[3] == password:
+            print("Logged in succssefull")
 
+        else:
+            print("invalid option..")
+
+# Register to system
+
+
+def register():
     pass
 
 
 if choice == '1':
-    Id = int(input("Please enter your ID:"))
-    password = input("Please enter your password:")
-    login_dic['ID'] = Id
-    login_dic['password'] = password
-    # f.write(str(login_dic))
-
-    login(Id, password, email='', name='')
-
+    login()
 if choice == '2':
-
-    user_name = input("Enter your username:")
-    user_email = input("Enter your email:")
-    user_password = input("Enter your password")
-    # f.write("hi\n")
-    f.write(f"username:{str(user_name)}")
+    register()
 
 if choice == '#':
     pass

@@ -5,6 +5,8 @@ list_vaccines = ["Corona", "cancer", "Virus C"]
 users = [['111', 'zeyad', 'zeyad2005@', 'zoz']]
 admin_password = "admin"
 vaccination_center = [['000', 'ax', 'cairo', list_vaccines]]
+# check admin or user
+role = input("Enter admin password:").lower()
 
 # Take the input
 choice = input(
@@ -14,7 +16,6 @@ choice = input(
 # User login the System
 
 def login():
-    role = input("Enter admin password:").lower()
     Id = int(input("Enter your ID:"))
     name = input("Enter your name:")
     email = input("enter your email:")

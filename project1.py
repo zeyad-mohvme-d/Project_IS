@@ -13,7 +13,7 @@ choice = input(
     "Enter which you want:\n1-Login\n2-Register\n3-Add Vaccine center\n3-remove vaccine center:\n").lower()
 
 
-# User login the System
+# User login to the System
 
 def login():
     Id = int(input("Enter your ID:"))

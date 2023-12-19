@@ -11,13 +11,14 @@ choice = input(
 # User login the System
 
 def login():
+    role = input("Are you admin or not:")
     Id = int(input("Enter your ID:"))
     name = input("Enter your name:")
     email = input("enter your email:")
     password = input("Enter your password:")
     for user in users:
         if user[2] == email and user[3] == password:
-            print("Logged in succssefull")
+            print("Logged in successful")
 
         else:
             print("invalid option..")

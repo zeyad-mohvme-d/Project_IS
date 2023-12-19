@@ -1,10 +1,9 @@
 import os
 import json
-import pickle
 
 file_path = 'logs.txt'
 f = open("Logs.txt", 'a+')
-login_dic = {"ID": '', "password": ''}
+users = []
 
 # Take the input
 choice = input(

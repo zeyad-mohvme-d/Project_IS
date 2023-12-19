@@ -8,23 +8,15 @@ login_dic = {"ID": '', "password": ''}
 
 # Take the input
 choice = input(
-    "Enter which you want:\n1-Login\n2-Register\n3-Add Vaccine center\n3-remove vaccine center:\n")
-
-# check if username and password is in database file
-
-
-def check():
-    data = f.readline()
-    pickle.loads(file_path)
-    print(data)
+    "Enter which you want:\n1-Login\n2-Register\n3-Add Vaccine center\n3-remove vaccine center:\n").lower()
 
 
 # User login the System
 
 
-def login(Id, password, email, name):
+def login():
 
-    check()
+    pass
 
 
 if choice == '1':
@@ -45,4 +37,4 @@ if choice == '2':
     f.write(f"username:{str(user_name)}")
 
 if choice == '#':
-    check()
+    pass

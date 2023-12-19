@@ -1,9 +1,6 @@
 import os
 import json
 
-file_path = 'logs.txt'
-f = open("Logs.txt", 'a+')
-login_dic = {"ID": '', "password": ''}
 users = [['111', 'zeyad', 'zeyad2005@', 'zoz']]
 
 # Take the input

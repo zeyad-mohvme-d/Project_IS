@@ -1,22 +1,22 @@
-import os
-import json
-
-
 list_vaccines = ["Corona", "cancer", "Virus C"]
 users = [['111', 'zeyad', 'zeyad2005@', 'zoz']]
 admin_password = "admin"
 vaccination_center = [['000', 'ax', 'cairo', list_vaccines]]
-
-# Take the input
-# choice = input(
-#     "Enter which you want:\n1-Login\n2-Register:\n").lower()
-
 specfiy_who_are_u = input("Are you user or admin:").lower()
+
+
+def clear():
+    return False
+
+
 if specfiy_who_are_u == 'admin':
     role = input("Enter admin password:").lower()
+    if role == 'admin':
+        print("\n")
+    else:
+        quit()
 elif specfiy_who_are_u == 'user':
     print("")
-
 # User login the System
 
 
@@ -62,8 +62,10 @@ def register():
     user_ID = input("Please enter your Id:")
     user_email = input("Please enter your email:")
     user_password = input("Please enter your password:")
+    user_phone_number = int(input("Please enter your phone number:"))
+    user_national_id = int(input("Please enter your national id:"))
     inputs = []
-    inputs.append([])
+    inputs.append([user_ID, user_name, user_email, user_password])
 
 
 if specfiy_who_are_u == 'admin':

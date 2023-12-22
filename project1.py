@@ -1,12 +1,6 @@
 import os
 import json
 
-specfiy_who_are_u = input("Are you user or admin:").lower()
-if specfiy_who_are_u == 'admin':
-    role = input("Enter admin password:").lower()
-else:
-    print("")
-
 
 list_vaccines = ["Corona", "cancer", "Virus C"]
 users = [['111', 'zeyad', 'zeyad2005@', 'zoz']]
@@ -14,11 +8,17 @@ admin_password = "admin"
 vaccination_center = [['000', 'ax', 'cairo', list_vaccines]]
 
 # Take the input
-choice = input(
-    "Enter which you want:\n1-Login\n2-Register:\n").lower()
+# choice = input(
+#     "Enter which you want:\n1-Login\n2-Register:\n").lower()
 
+specfiy_who_are_u = input("Are you user or admin:").lower()
+if specfiy_who_are_u == 'admin':
+    role = input("Enter admin password:").lower()
+elif specfiy_who_are_u == 'user':
+    print("")
 
 # User login the System
+
 
 def login():
     email = input("enter your email:")
@@ -66,10 +66,7 @@ def register():
     inputs.append([])
 
 
-if choice == '1':
+if specfiy_who_are_u == 'admin':
     login()
-if choice == '2':
+if specfiy_who_are_u == 'user':
     register()
-
-if choice == '#':
-    pass

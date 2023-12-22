@@ -19,14 +19,14 @@ def login():
     # name = input("Enter your name:")
     # email = input("enter your email:")
     # password = input("Enter your password:")
-    for i in range(3):
-        email = input("enter your email:")
-        password = input("Enter your password:")
-        for user in users:
-            if user[2] == email and user[3] == password:
-                pass
-            else:
-                print("invalid option..")
+    email = input("enter your email:")
+    password = input("Enter your password:")
+    for user in users:
+        if user[2] == email and user[3] == password:
+            print("User Existed")
+        else:
+            print("invalid option..")
+            return False
         if role == admin_password:
             print("Admin menu\n")
             while True:
@@ -37,7 +37,8 @@ def login():
                     vac_name = input("Enter the vaccination center name:")
                     vac_address = input(
                         "Enter the vaccination center address:")
-                    vaccination_center.append([vac_ID, vac_name, vac_address])
+                    vaccination_center.append(
+                        [vac_ID, vac_name, vac_address, list_vaccines])
                     print("list added")
 
                 else:

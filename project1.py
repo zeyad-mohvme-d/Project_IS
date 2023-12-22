@@ -8,41 +8,44 @@ vaccination_center = [['000', 'ax', 'cairo', list_vaccines]]
 
 # Take the input
 choice = input(
-    "Enter which you want:\n1-Login\n2-Register\n3-Add Vaccine center\n3-remove vaccine center:\n").lower()
+    "Enter which you want:\n1-Login\n2-Register:\n").lower()
 
 
 # User login the System
 
 def login():
     role = input("Enter admin password:").lower()
-    Id = int(input("Enter your ID:"))
-    name = input("Enter your name:")
-    email = input("enter your email:")
-    password = input("Enter your password:")
-    while True:
+    # Id = int(input("Enter your ID:"))
+    # name = input("Enter your name:")
+    # email = input("enter your email:")
+    # password = input("Enter your password:")
+    for i in range(3):
+        email = input("enter your email:")
+        password = input("Enter your password:")
         for user in users:
             if user[2] == email and user[3] == password:
                 pass
             else:
                 print("invalid option..")
-                
+        if role == admin_password:
+            print("Admin menu\n")
+            while True:
+                choice = input(
+                    "Add Vaccination Center:\nRemove Vaccination Center:\n").lower()
+                if choice == 'add':
+                    vac_ID = int(input("Enter the vaccination center ID:"))
+                    vac_name = input("Enter the vaccination center name:")
+                    vac_address = input(
+                        "Enter the vaccination center address:")
+                    vaccination_center.append([vac_ID, vac_name, vac_address])
+                    print("list added")
 
-    if role == admin_password:
-        print("Admin menu\n")
-        while True:
-            choose = input(
-            "Add Vaccination Center:\nRemove Vaccination Center:\n").lower()
-            if choose == 'add':
-                vac_ID = int(input("Enter the vaccination center ID:"))
-                vac_name = input("Enter the vaccination center name:")
-                vac_address = input("Enter the vaccination center address:")
-                vaccination_center.append([vac_ID, vac_name, vac_address])
-                print("list added")
-            else:
-                print(vaccination_center)
-                remove_input = int(input("Enter which list you want to remove:"))
-                removed_vacc = remove_input - 1
-                vaccination_center.pop(removed_vacc)
+                else:
+                    print(vaccination_center)
+                    remove_input = input(
+                        "Enter which list you want to remove:")
+                    remove_input - 1
+                    vaccination_center.pop(remove_input)
 
 # Register to system
 

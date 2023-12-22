@@ -27,10 +27,10 @@ def login():
 
     if role == admin_password:
         print("Admin menu\n")
-        choice = input(
-            "Add Vaccination Center:\nRemove Vaccination Center:\n").lower()
         while True:
-            if choice == 'add':
+            choose = input(
+            "Add Vaccination Center:\nRemove Vaccination Center:\n").lower()
+            if choose == 'add':
                 vac_ID = int(input("Enter the vaccination center ID:"))
                 vac_name = input("Enter the vaccination center name:")
                 vac_address = input("Enter the vaccination center address:")

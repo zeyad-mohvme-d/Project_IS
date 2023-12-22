@@ -1,6 +1,13 @@
 import os
 import json
 
+specfiy_who_are_u = input("Are you user or admin:").lower()
+if specfiy_who_are_u == 'admin':
+    role = input("Enter admin password:").lower()
+else:
+    print("")
+
+
 list_vaccines = ["Corona", "cancer", "Virus C"]
 users = [['111', 'zeyad', 'zeyad2005@', 'zoz']]
 admin_password = "admin"
@@ -14,11 +21,6 @@ choice = input(
 # User login the System
 
 def login():
-    role = input("Enter admin password:").lower()
-    # Id = int(input("Enter your ID:"))
-    # name = input("Enter your name:")
-    # email = input("enter your email:")
-    # password = input("Enter your password:")
     email = input("enter your email:")
     password = input("Enter your password:")
     for user in users:
@@ -30,9 +32,9 @@ def login():
         if role == admin_password:
             print("Admin menu\n")
             while True:
-                choice = input(
-                    "Add Vaccination Center:\nRemove Vaccination Center:\n").lower()
-                if choice == 'add':
+                choose = input(
+                    "Add Vaccination Center:\nRemove Vaccination Center:\n:").lower()
+                if choose == 'add':
                     vac_ID = int(input("Enter the vaccination center ID:"))
                     vac_name = input("Enter the vaccination center name:")
                     vac_address = input(
@@ -41,18 +43,27 @@ def login():
                         [vac_ID, vac_name, vac_address, list_vaccines])
                     print("list added")
 
-                else:
+                elif choose == 'remove':
                     print(vaccination_center)
-                    remove_input = input(
-                        "Enter which list you want to remove:")
-                    remove_input - 1
-                    vaccination_center.pop(remove_input)
+                    remove_input = int(input(
+                        "Enter which list you want to remove:"))
+                    removed_center = remove_input - 1
+                    vaccination_center.pop(removed_center)
+
+                else:
+                    print("invalid option...")
+                    break
 
 # Register to system
 
 
 def register():
-    pass
+    user_name = input("Please Enter your name:")
+    user_ID = input("Please enter your Id:")
+    user_email = input("Please enter your email:")
+    user_password = input("Please enter your password:")
+    inputs = []
+    inputs.append([])
 
 
 if choice == '1':

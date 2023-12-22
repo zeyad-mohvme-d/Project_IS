@@ -20,7 +20,6 @@ def login():
     email = input("enter your email:")
     password = input("Enter your password:")
     while True:
-        
         for user in users:
             if user[2] == email and user[3] == password:
                 pass

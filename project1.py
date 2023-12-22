@@ -24,6 +24,7 @@ def login():
             print("Iam here")
         else:
             print("invalid option..")
+            return False
 
     if role == admin_password:
         print("Admin menu\n")

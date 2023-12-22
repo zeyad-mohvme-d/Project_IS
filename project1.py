@@ -27,7 +27,7 @@ def login():
         if user[2] == email and user[3] == password:
             print("User Existed")
         else:
-            print("invalid option..")
+            print("User doesn't exist..")
             return False
         if role == admin_password:
             print("Admin menu\n")

@@ -19,12 +19,14 @@ def login():
     name = input("Enter your name:")
     email = input("enter your email:")
     password = input("Enter your password:")
-    for user in users:
-        if user[2] == email and user[3] == password:
-            print("Iam here")
-        else:
-            print("invalid option..")
-            return False
+    while True:
+        
+        for user in users:
+            if user[2] == email and user[3] == password:
+                pass
+            else:
+                print("invalid option..")
+                
 
     if role == admin_password:
         print("Admin menu\n")

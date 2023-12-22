@@ -38,9 +38,9 @@ def login():
                 print("list added")
             else:
                 print(vaccination_center)
-                remove_input = input("Enter which list you want to remove:")
-                remove_input - 1
-                vaccination_center.pop(remove_input)
+                remove_input = int(input("Enter which list you want to remove:"))
+                removed_vacc = remove_input - 1
+                vaccination_center.pop(removed_vacc)
 
 # Register to system
 

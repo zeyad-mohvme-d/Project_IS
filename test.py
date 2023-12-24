@@ -1,121 +1,105 @@
-'''
-This is the [Vaccination System] project
+vaccines = ["Corona", "Cancer", "Virus C"]
+users = [
+    ['usr1', 'usr2', 'usr3', 'usr4'], # username
+    ['1', '2', '3', '4'], # ID
+    ['nat1', 'nat2', 'nat3', 'nat4'], # national ID
+    ['pass1', 'pass2', 'pass3', 'pass4'], # password
+    ['email1', 'email2', 'email3', 'email4'], # email
+    ['phone1', 'phone2', 'phone3', 'phone4'] # phone number
+]
+admins = [
+    ["admin1", 'admin2'], # name
+    ['1', '2'], # ID
+    ['pass1', 'pass2'], # password
+    ['email1', 'email2'] # email
+]
+vaccination_center = { # names: IDs
+    'Center1': '1',
+    'Center2': '2',
+    'Center3': '3' 
+}
+reservation = [
+    [], # user ID
+    [], # vaccination center ID
+    []  # vaccine name
+]
+requests = []
+def admin_do():
+    pass
+def user_do(user_id):
+    while True:
+        print("Here is the options menu: \n1. Vaccination Centers\n2. Reserve a vaccination\n3. Exit")
+        option = input("Enter your choice: ")
+        if option.strip() == '1':
+            for i in vaccination_center:
+                print(i)
+        elif option.strip() == '2':
+            print("To reserve a vaccination you should specify where the center is and the vaccine name: ")
+            get_center = input("Enter the name of the center: ")
+            get_vaccine = input("Enter the name of the vaccine: ")
+            ch = input("Do you want to proceed in reservation? (y/n): ").strip().lower()
+            if ch == 'y':
+                reservation[0].append(vaccination_center.get(user_id))
+                reservation[1].append(vaccination_center.get(get_center))
+                reservation[2].append(vaccination_center.get(get_vaccine))
+                print("Reservation finished")
+            elif ch == 'n':
+                pass
+            else: print("Invalid input")
 
-'''
-
-list_vaccines = ["Corona", "cancer", "Virus C"]
-users = [['111', 'zeyad', 'zeyad2005@', 'zoz'],
-         ['222', 'sadek', 'sadek2004@', 'sadek20']]
-admin_password = "admin"
-vaccination_center = [['000', 'ax', 'cairo', list_vaccines]]
-registered_users_list = ["Ahmed Adel", "Sadek Rizkallah"]
-
-
-def login():
-    email = input("enter your email:")
-    password = input("Enter your password:")
-    for user in users:
-        # check if the email and password is existed
-        if user[2] == email and user[3] == password:
-
-            print("\n*******User Existed*******\n\n")
-
-        else:
-
-            print("invalid option..")
-            return False
-
-        if role == admin_password:  # Enter the Admin menu
-            print("Admin menu\n")
-
-            while True:
-                choose = input(
-                    "Add Vaccination Center:\nRemove Vaccination Center\nSearch\nShow Registered Users\n:").lower()  # The admin Choose which operation
-
-                if choose == 'add':
-                    vac_ID = int(input("Enter the vaccination center ID:"))
-                    vac_name = input("Enter the vaccination center name:")
-                    vac_address = input(
-                        "Enter the vaccination center address:")
-                    vaccination_center.append(
-                        [vac_ID, vac_name, vac_address, list_vaccines])
-                    print("list added")
-
-                elif choose == 'remove':
-                    print(vaccination_center)
-                    remove_input = int(input(
-                        "Enter which list you want to remove:"))
-                    removed_center = remove_input - 1
-                    vaccination_center.pop(removed_center)
-
-                elif choose == "search":
-                    search_input = input(
-                        "Please enter the name of the vaccination center:")
-
-                elif choose == 'Show':
-                    print(
-                        f"those are registered users:{registered_users_list}")
-
-                else:
-                    print("invalid option...")
-                    break
-
-
-# *******User Login into the system*******
-
-def user_login():
-    email = input("enter your email:")
-    password = input("Enter your password:")
-    for user in users:
-        # check if the email and password is existed
-        if user[2] == email and user[3] == password:
-
-            print("\n*******User Existed*******\n\n")
-
-            print(vaccination_center)
-
-            print(
-                f"Your reservation has been accepted ---->(user ID:444), (vaccination center id:000), (vaccine name: Corona)")
-
-            print("\nYour vaccination date is: 1/1/2024")
-
-            quit()
-
-        else:
-            print("User doesn't exist")
-            return False
-
-
-# *********Register to system*********
-
+        elif option.strip() == '3':
+            break
+        else: print("Invalid input")
 
 def register():
-    # Take the credintals from the user
-    user_ID = input("Please enter your Id:")
-    user_name = input("Please Enter your name:")
-    user_email = input("Please enter your email:")
-    user_password = input("Please enter your password:")
-    user_phone_number = int(input("Please enter your phone number:"))
-    user_national_id = int(input("Please enter your national id:"))
-    # *********save the new user data into the list*********
-    users.append([user_ID, user_name, user_email, user_password])
-    registered_users_list.append(user_name)
-    return True
+    name = input("Please Enter a username: ")
+    users[0].append(name)
 
+    user_id = input("Please Enter your ID: ")
+    users[1].append(user_id)
 
-# ******************
-specfiy_who_are_u = input("1-New user\n2-User\n3-admin\n:")
+    national_id = input("Please enter your national id:")
+    users[2].append(national_id.strip())
+
+    password = input("Please Enter a strong password: ")
+    users[3].append(password)
+
+    email = input("Please Enter your email: ")
+    users[4].append(email)
+
+    phone_number = input("Please enter your phone number:")
+    users[5].append(phone_number)
+
+def login():
+    while True:
+        option = input("Do you want to log in as an admin or a user?\nType 'a' for admin and 'u' for user: ")
+        if option.strip().lower() == 'a':
+            pass
+        elif option.strip().lower() == 'u':
+            get_name = input("Enter your username: ")
+            get_id = input("Enter your ID: ")
+            get_password = input("Enter your password: ")
+            if users[0].count(get_name) and users[1].count(get_id) and users[3].count(get_password):
+                print(f"Welcome {get_name}")
+                user_do(get_id)
+                break
+            else:
+                print("\nNot foud")
+        else:
+            print("\nInvalid value")
+
+print("Welcome to the Vaccination Scheduling Program!")
+print("First you need to Sign in or Sign up\n")
 
 while True:
-    if specfiy_who_are_u == '3':
-        role = input("Enter admin password:").lower()
-        if role == 'admin':
-            login()
-        else:
-            quit()
-    elif specfiy_who_are_u == '2':
-        user_login()
-
-    elif specfiy_who_are_u == '1':
+    option = input("To Sign in press 1\nTo Sign up press 2\nTo exit press 0\n\nYour choice: ")
+    if option.strip() == '1':
+        login()
+        break
+    elif option.strip() == '2':
         register()
         break
+    elif option.strip() == '0':
+        break
+    else:
+        print("\nInvalid value")

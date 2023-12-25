@@ -52,6 +52,10 @@ def login():
             elif choose == "search":
                 search_input = input(
                     "Please enter the name of the vaccination center:")
+                for vaccine_name in vaccination_center:
+                    for name in vaccine_name:
+                        if search_input == name[1]:
+                            print(f"The vaccination center name ({search_input} found)")
 
             elif choose == 'show':
                 print(
@@ -111,9 +115,11 @@ while True:
     specfiy_who_are_u = input("1-New user\n2-User\n3-admin\n:")
 
     if specfiy_who_are_u == '3':
-        role = input("Enter admin password:").lower()
-        if role == 'admin':
-            login()
+        while True:
+
+            role = input("Enter admin password:").lower()
+            if role == 'admin':
+                login()
         else:
             quit()
     elif specfiy_who_are_u == '2':

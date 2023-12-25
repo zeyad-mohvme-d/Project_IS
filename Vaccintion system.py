@@ -13,6 +13,7 @@ registered_users_list = ["Ahmed Adel", "Sadek Rizkallah"]
 lst_login = []
 lst_user_login = []
 
+
 def login():
     email = input("enter your email:")
     password = input("Enter your password:")
@@ -43,23 +44,26 @@ def login():
                 print("list added")
 
             elif choose == 'remove':
-                print(vaccination_center)
-                remove_input = int(input(
-                    "Enter which list you want to remove:"))
-                removed_center = remove_input - 1
-                vaccination_center.pop(removed_center)
+                while True:
+                    print(vaccination_center)
+                    remove_input = int(input(
+                        "Enter which list you want to remove:"))
+                    if remove_input > len(vaccination_center):
+                        print("\nInvalid choice")
+                        break
+                    removed_center = remove_input - 1
+                    vaccination_center.pop(removed_center)
+                    break
 
             elif choose == "search":
                 search_input = input(
                     "Please enter the name of the vaccination center:")
                 for vaccine_name in vaccination_center:
-                    for name in vaccine_name:
-                        if search_input == name[1]:
-                            print(f"The vaccination center name ({search_input} found)")
-
+                    if search_input in vaccine_name:
+                        print(f"\n{search_input} found successfully\n")
             elif choose == 'show':
                 print(
-                    f"those are registered users:{registered_users_list}")
+                    f"those are registered users:{registered_users_list}\n")
 
             else:
                 print("invalid option...")
@@ -120,8 +124,6 @@ while True:
             role = input("Enter admin password:").lower()
             if role == 'admin':
                 login()
-        else:
-            quit()
     elif specfiy_who_are_u == '2':
         user_login()
     elif specfiy_who_are_u == '1':

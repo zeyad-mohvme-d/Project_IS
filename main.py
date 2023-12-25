@@ -35,7 +35,7 @@ def register():
         f.write(password + "\n")
         f.seek(0)
         f.close()
-        print(data)
+    
 
 def login():
     email = input("enter your email:")

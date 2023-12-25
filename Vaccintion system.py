@@ -18,13 +18,14 @@ def login():
     password = input("Enter your password:")
     for user in users:
         for user_email in user:
-            lst.append(user_email)
+            lst_login.append(user_email)
     if email in lst_login:
         if password in lst_login:
             pass
         print(f"User {email} existed")
     else:
         print("user doesn't exist")
+        return False
 
     if role == admin_password:  # Enter the Admin menu
         print("Admin menu\n")
@@ -44,7 +45,7 @@ def login():
             elif choose == 'remove':
                 print(vaccination_center)
                 remove_input = int(input(
-                        "Enter which list you want to remove:"))
+                    "Enter which list you want to remove:"))
                 removed_center = remove_input - 1
                 vaccination_center.pop(removed_center)
 
@@ -52,7 +53,7 @@ def login():
                 search_input = input(
                     "Please enter the name of the vaccination center:")
 
-            elif choose == 'Show':
+            elif choose == 'show':
                 print(
                     f"those are registered users:{registered_users_list}")
 
@@ -85,10 +86,9 @@ def user_login():
 
             return True
 
-
-        else:
-            print("User doesn't exist")
-            return False
+    else:
+        print(f"{email} User doesn't exist\n")
+        return False
 
 
 # *********Register to system*********

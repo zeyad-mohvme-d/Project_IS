@@ -22,11 +22,10 @@ def login():
             lst_login.append(user_email)
     if email in lst_login:
         if password in lst_login:
-            pass
-        print(f"User {email} existed")
-    else:
-        print("user doesn't exist")
-        return False
+            print(f"User {email} existed")
+        else:
+            print("user doesn't exist")
+            return False
 
     if role == admin_password:  # Enter the Admin menu
         print("Admin menu\n")
@@ -128,3 +127,6 @@ while True:
         user_login()
     elif specfiy_who_are_u == '1':
         register()
+
+    else:
+        break
